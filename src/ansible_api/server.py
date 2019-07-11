@@ -43,4 +43,5 @@ class Server(object):
         config['sign_key'] = len(config['sign_key']) * '*'  # mask signature key
         Tool.LOGGER.debug("Config at start: %s" % json.dumps(config))
 
-        app.run(host=Config.get('host'), port=Config.get('port'), workers=Config.get('workers'), debug=not daemon)
+        app.run(host=Config.get('host'), port=Config.get('port'), workers=Config.get('workers'), debug=not daemon,
+                auto_reload=False)
