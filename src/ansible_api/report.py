@@ -116,7 +116,7 @@ class Reporter(object):
             msg['msg'] = dict(host=data['host'], task_name=data['name'], rc=data['rc'])
             options = ['stdout', 'stderr', 'cmd', 'changed', 'start', 'delta']
             for f in options:
-                if f in data['res']:
+                if data['res'] and f in data['res']:
                     msg['msg'][f] = data['res'][f]
             msg['rc'] = data['rc']
             # info = "%s\t%s\t%s\t%s\tOK" % (
